@@ -29,11 +29,15 @@ O projeto segue uma arquitetura em camadas:
 Interface simples utilizando Thymeleaf, pensada para usuários leigos
 (como pequenos comerciantes ou uso local).
 
-## ⚠️ Observações Importantes
-- A autenticação utiliza uma senha simples, sem criptografia.
-- Não há controle de usuários.
-- Projeto voltado para fins educacionais e aplicações locais.
-
+## 🔌 Endpoints REST
+A API fornece os seguintes endpoints:
+```markdown
+- POST /stock → Criar produto
+- GET /stock/all → Listar produtos
+- GET /stock/{id} → Buscar por ID
+- PUT /stock/{id} → Atualizar produto
+- DELETE /stock/{id} → Deletar produto
+```
 ## ⚡ Melhorias Futuras
 - Implementação de usuários
 - Criptografia de senha
