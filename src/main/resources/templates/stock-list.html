@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h2>Estoque</h2>
+
+<a href="/view/stocks/new">Novo Produto</a>
+<a href="/logout">Sair</a>
+
+<table border="1">
+    <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Ações</th>
+    </tr>
+
+    <tr th:each="s : ${stocks}">
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.quantity}"></td>
+        <td th:text="${s.price}"></td>
+        <td>
+            <a th:href="@{/view/stocks/edit/{id}(id=${s.id})}">Editar</a>
+
+            <form th:action="@{/view/stocks/delete/{id}(id=${s.id})}"
+                  method="post"
+                  style="display:inline">
+                <button type="submit"
+                        onclick="return confirm('Tem certeza?')">
+                    Deletar
+                </button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
